@@ -1,7 +1,7 @@
 #!/bin/bash
 # Spo11-oligo_mapping
 
-# The following code for cutting oligos introduced by the library prepartion applies to most data. But we recommend you use fastqc to look at the sequence characteristics at the first.
+# The following code for cutting oligos introduced by the library prepartion applies to most data. But we recommend you to use fastqc to look at the sequence characteristics at the first.
 
 # Remove the first 5 NTs from R1, as well as the portion after GGGAGAT.
 cutadapt -j 24 -u 5 -a GGGAGAT -o ${sample}_Trim1_1.fastq.gz -p ${sample}_Trim1_2.fastq.gz ${sample}_1.fastq.gz ${sample}_2.fastq.gz
