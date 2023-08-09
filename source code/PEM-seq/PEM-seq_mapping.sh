@@ -3,7 +3,7 @@
 
 ##############################################################################
 # Note:
-# If there are result files on GEO, we directly download and extract prey information to generate a BED file. 
+# If there are result files on GEO, we directly download these files and extract prey information to generate a BED file. 
 # Otherwise, we primarily follow the instructions on this website for analysis: https://github.com/liumz93/PEM-Q
 # Generate a Translocation.tab file and then extract prey information to generate a BED file.
 ##############################################################################
