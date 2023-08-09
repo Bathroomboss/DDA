@@ -1,9 +1,8 @@
 #!/bin/bash
 # Spo11-oligo_mapping
-
 # The following code for cutting oligos introduced by the library prepartion applies to most data. But we recommend you to use fastqc to look at the sequence characteristics at the first.
-
-# Remove the first 5 NTs from R1, as well as the portion after GGGAGAT.
+#################### For PE cutadapt ################### #################### For PE cutadapt ###################
+# Remove the first 5 NTs from R1, as well as the portion after GGGAGAT(including GGGAGAT).
 cutadapt -j 24 -u 5 -a GGGAGAT -o ${sample}_Trim1_1.fastq.gz -p ${sample}_Trim1_2.fastq.gz ${sample}_1.fastq.gz ${sample}_2.fastq.gz
 # Remove the leading CCC from R1 and the portion after GGGNNNNNAGAT from R2(including GGGNNNNNAGAT).
 cutadapt -j 24 -g ^CCC -A GGGNNNNNAGAT --discard-untrimmed -o ${sample}_Trim2_1.fastq.gz -p ${sample}_Trim2_2.fastq.gz ${sample}_Trim1_1.fastq.gz ${sample}_Trim1_2.fastq.gz
@@ -25,7 +24,7 @@ cutadapt -j 24 -g ^CCC --discard-untrimmed -o ${sample}_Trim2.fastq.gz ${sample}
 cutadapt -e 0 -j 24 -g ^C -o ${sample}_Trim3.fastq.gz ${sample}_Trim2.fastq.gz 
 cutadapt -e 0 -j 24 -a G$ -m 15 -o ${sample}_Trim4.fastq.gz ${sample}_Trim3.fastq.gz
 rm ${sample}_Trim1.fastq.gz ${sample}_Trim2.fastq.gz ${sample}_Trim3.fastq.gz
-#################### For SE cutadapt ################### #################### For SE cutadapt ###################
+###################################################################################################################
 
 # Note: we perform both "--end-to-end" and "--local" model in bowtie2 and choose the results with higher mapping rate. 
 bowtie2 -p 24 -x $Bowtie2Index -X 1000 --no-discordant --very-sensitive --mp 5,1 --np 0 -1 ${sample}_Trim5_1.fastq.gz -2 ${sample}_Trim5_2.fastq.gz -S ${sample}.mm10.sam --no-unal
