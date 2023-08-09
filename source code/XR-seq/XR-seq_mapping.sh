@@ -1,11 +1,5 @@
 #!/bin/bash
-#$ -cwd
-#$ -S /bin/bash
-#$ -j y
-#$ -m n
-#$ -M wuw@sibcb.ac.cn
-#$ -notify
-#$ -N XR-seq
+# XR-seq
 
 python3 -m pip install --user cutadapt
 ## Small RNA 3' Adapter
