@@ -3,7 +3,7 @@
 
 ##############################################################################
 # Note:
-# If there are result files on GEO, we directly download and extract prey information to generate a BED file. 
+# If there are result files on GEO, we directly download these files and extract prey information to generate a BED file. 
 # Otherwise, we primarily follow the instructions on this website for analysis: https://robinmeyers.github.io/transloc_pipeline/thedocs.html
 # Generate a result.tlx file and then extract prey information to generate a BED file.
 ##############################################################################
