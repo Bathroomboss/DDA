@@ -1,7 +1,6 @@
 #!/bin/bash
 # XR-seq
 
-python3 -m pip install --user cutadapt
 ## Small RNA 3' Adapter
 cutadapt -j 24 -m 20 -a TGGAATTCTCGGGTGCCAAGG -o $DPATH/${File}_cutadapt.fastq.gz $DPATH/$File.fastq.gz
 bowtie2 -p 24 -x $Bowtie2Index -U $DPATH/${File}_cutadapt.fastq.gz -S $DPATH/${File}_cutadapt.$SZ.sam --no-unal
